@@ -19,11 +19,6 @@ function App() {
   ])
   const [titleValue, setTitleValue] = useState('Menu')
   const showUserName = (id: number) => {
-    // user.map(u => {
-    //   if (u.id === id) {
-    //     setTitleValue(u.name)
-    //   }
-    // })
     user.map(u => u.id === id ?  setTitleValue(u.name) : '')
   }
   return (
