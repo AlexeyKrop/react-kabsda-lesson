@@ -6,7 +6,7 @@ type RatingPropsType = {
   setRatingValue: (value: number) => void
 }
 
-export function Rating(props: RatingPropsType) {
+function RatingM(props: RatingPropsType) {
   return (
     <div>
       {<Star value={1}  setRatingValue={props.setRatingValue}  selected={props.ratingValue > 0}/>}
@@ -17,3 +17,4 @@ export function Rating(props: RatingPropsType) {
     </div>
   )
 }
+export const Rating = React.memo(RatingM)

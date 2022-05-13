@@ -3,7 +3,7 @@ import {UserType} from "../../App";
 type SelectType = {
   user: Array<UserType>
 }
-const Select = (props:SelectType) => {
+const SelectM = (props:SelectType) => {
   const[value, setValue] = useState('Menu')
   const onchangeSelectHandler = (e: ChangeEvent<HTMLSelectElement>)=>{
     setValue(e.currentTarget.value)
@@ -16,5 +16,5 @@ const Select = (props:SelectType) => {
     </div>
   );
 };
-
+const Select = React.memo(SelectM)
 export default Select;

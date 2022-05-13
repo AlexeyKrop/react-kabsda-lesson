@@ -6,7 +6,7 @@ type StarPropsType = {
   setRatingValue: (value: number) => void
 }
 
-export function Star(props: StarPropsType) {
+function StarM(props: StarPropsType) {
   return (
     <>
       <span onClick={() => {
@@ -17,3 +17,4 @@ export function Star(props: StarPropsType) {
     </>
   )
 }
+export const Star = React.memo(StarM)

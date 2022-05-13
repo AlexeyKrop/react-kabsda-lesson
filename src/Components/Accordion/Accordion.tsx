@@ -10,7 +10,7 @@ type AccordionPropsType = {
   setAccordionCollapsed: (collapsed: boolean) => void
 }
 
-function Accordion(props: AccordionPropsType) {
+function AccordionM(props: AccordionPropsType) {
   return (
     <>
     <div onClick={() => {
@@ -31,5 +31,5 @@ function Accordion(props: AccordionPropsType) {
     </>
   )
 }
-
+const Accordion = React.memo(AccordionM)
 export default Accordion
