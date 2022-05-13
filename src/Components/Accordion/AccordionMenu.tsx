@@ -9,7 +9,7 @@ type AccordionMenuType = {
   setAccordionCollapsed: (collapsed: boolean) => void
 }
 
-export function AccordionMenu(props: AccordionMenuType) {
+function AccordionMenuM(props: AccordionMenuType) {
   const onClickMenuListHandler = (id: number) => {
     props.showUserName(id)
     props.setAccordionCollapsed(!props.collapsed)
@@ -23,3 +23,4 @@ export function AccordionMenu(props: AccordionMenuType) {
     </ul>
   )
 }
+export const AccordionMenu = React.memo(AccordionMenuM)
