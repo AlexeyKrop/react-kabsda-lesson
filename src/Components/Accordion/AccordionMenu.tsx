@@ -1,4 +1,4 @@
-import React from "react";
+import React,{KeyboardEvent} from "react";
 import {UserType} from "../../App";
 
 type AccordionMenuType = {
@@ -14,11 +14,12 @@ export function AccordionMenu(props: AccordionMenuType) {
     props.showUserName(id)
     props.setAccordionCollapsed(!props.collapsed)
   }
+  const onKeyUp = (e: KeyboardEvent<HTMLUListElement>) => {
+    e.currentTarget.focus()
+  }
   return (
-    <ul className="menu">
-      {props.user.map(u => <li onClick={() => {
-        onClickMenuListHandler(u.id)
-      }} key={u.id} className="menu__list">{u.name}</li>)}
+    <ul className="menu" onKeyUp={onKeyUp} tabIndex={0}>
+      {props.user.map(u => <li onClick={() => {onClickMenuListHandler(u.id)}} key={u.id} className="menu__list" >{u.name}</li>)}
     </ul>
   )
 }
