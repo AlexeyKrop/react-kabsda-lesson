@@ -32,6 +32,11 @@ function App() {
   const changeFilter = () => {
     setCountry(country.filter(c => c.population > 5000000))
   }
+  let [count, setCount] = useState(0)
+  const plusCountHandler = () => {
+    setCount(count = count + 1)
+  }
+  console.log('APPRender')
   return (
     <div className="App">
       <h2>This is component</h2>
@@ -42,6 +47,8 @@ function App() {
       {/*<Accordion titleValue='---User---' collapsed={false}/>*/}
       {/*<UnControlAccordion titleValue={'Menu'} />*/}
       {/*<Select user={user}/>*/}
+      <button onClick={plusCountHandler}>+</button>
+      {count}
       <Select/>
       <UseMemoTest country={country} changeFilter={changeFilter}/>
     </div>

@@ -6,6 +6,7 @@ type useMemoPropsType = {
   changeFilter: () => void
 }
 export const UseMemoTest = (props: useMemoPropsType) => {
+  console.log('countryRender')
   const changeFilterHandler = () => {
     props.changeFilter()
   }
