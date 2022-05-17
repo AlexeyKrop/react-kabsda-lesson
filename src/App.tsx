@@ -8,6 +8,7 @@ export type UserType = {
 }
 
 function App() {
+  console.log('appRender')
   const [accordionCollapsed, setAccordionCollapsed] = useState(true)
   const [ratingValue, setRatingValue] = useState(0)
   const [user, setUser] = useState<Array<UserType>>([

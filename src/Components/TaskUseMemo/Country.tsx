@@ -1,5 +1,6 @@
-import React, {useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import Select from "../Select/Select";
+
 const Country = () => {
   const [country, setCountry] = useState([
     {id: 'Russia', city: 'Sochi', population: 100000},
@@ -18,15 +19,33 @@ const Country = () => {
     {id: 'Usa', city: 'Boston', population: 12000000},
   ])
 
-    let filterForPopulation = country.filter(c => c.population > 3000000)
-    let filterForName = country.filter(c => c.city.indexOf('I') > -1)
-    let filterForCountry = country.filter(c => c.id === 'Russia')
+  console.log('countRender')
+  let [counter, setCounter] = useState(0)
 
+  const onclickHandler = () => {
+    setCounter(++counter)
+  }
+  let filterForPopulation = useMemo(() => {
+    return country.filter(c => c.population > 3000000)
+  }, [country])
+  let filterForName = useMemo(() => {
+    return country.filter(c => c.population > 3000000)
+  }, [country])
+  let filterForCountry = useMemo(() => {
+    return country.filter(c => c.id === 'Russia')
+  }, [country])
+
+  // let filterForPopulation = country.filter(c => c.population > 3000000)
+  // let filterForName = country.filter(c => c.city.indexOf('I') > -1)
+  // let filterForCountry = country.filter(c => c.id === 'Russia')
+  console.log('countryRender')
   return (
     <div>
       <Select country={filterForPopulation}/>
       <Select country={filterForName}/>
       <Select country={filterForCountry}/>
+      {counter}
+      <button onClick={onclickHandler}>+</button>
     </div>
   );
 };
