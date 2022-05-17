@@ -1,6 +1,7 @@
 import React, {useMemo, useState} from 'react';
 import './App.css';
 import Country from "./Components/TaskUseMemo/Country";
+import TaskReactMemo from "./Components/TaskReactMemo/TaskReactMemo";
 
 export type UserType = {
   id: number,
@@ -8,7 +9,6 @@ export type UserType = {
 }
 
 function App() {
-  console.log('appRender')
   const [accordionCollapsed, setAccordionCollapsed] = useState(true)
   const [ratingValue, setRatingValue] = useState(0)
   const [user, setUser] = useState<Array<UserType>>([
@@ -34,7 +34,8 @@ function App() {
       {/*{count}*/}
       {/*<Select/>*/}
       {/*<UseMemoTest country={country} callBack={changeFilterHandler}/>*/}
-      <Country />
+      {/*<Country />*/}
+      <TaskReactMemo />
     </div>
   );
 }
