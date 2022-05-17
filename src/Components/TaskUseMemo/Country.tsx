@@ -32,7 +32,7 @@ const Country = () => {
   let filterForCountry = useMemo(() => {
     return country.filter(c => c.id === 'Russia')
   }, [country])
-
+  //
   // let filterForPopulation = country.filter(c => c.population > 3000000)
   // let filterForName = country.filter(c => c.city.indexOf('I') > -1)
   // let filterForCountry = country.filter(c => c.id === 'Russia')
