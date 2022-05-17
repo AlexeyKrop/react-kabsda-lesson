@@ -3,8 +3,12 @@ import {countryType} from "../../App";
 
 type useMemoPropsType = {
   country: Array<countryType>
+  changeFilter: () => void
 }
 export const UseMemoTest = (props: useMemoPropsType) => {
+  const changeFilterHandler = () => {
+    props.changeFilter()
+  }
   return (
     <>
       <ul>
@@ -12,7 +16,7 @@ export const UseMemoTest = (props: useMemoPropsType) => {
           return <li key={index}>{c.city}</li>
         })}
       </ul>
-      <button>filterForPopulation</button>
+      <button onClick={changeFilterHandler}>filterForPopulation</button>
     </>
   );
 };

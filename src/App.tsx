@@ -27,8 +27,11 @@ function App() {
   let [country, setCountry] = useState<Array<countryType>>([
     {id: 'Russia', city:['Moscow', 'Samara', 'Sochi'], population: 15000000},
     {id: 'Belarus', city:['Minsk', 'Gomel', 'Bobruisk'], population: 5000000},
-    {id: 'USA', city:['New-York', 'Las-vegas', 'Washington'], population: 5000000},
+    {id: 'USA', city:['New-York', 'Las-vegas', 'Washington'], population: 7000000},
   ])
+  const changeFilter = () => {
+    setCountry(country.filter(c => c.population > 5000000))
+  }
   return (
     <div className="App">
       <h2>This is component</h2>
@@ -40,7 +43,7 @@ function App() {
       {/*<UnControlAccordion titleValue={'Menu'} />*/}
       {/*<Select user={user}/>*/}
       <Select/>
-      <UseMemoTest country={country}/>
+      <UseMemoTest country={country} changeFilter={changeFilter}/>
     </div>
   );
 }
