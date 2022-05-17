@@ -38,7 +38,7 @@ function App() {
     return count
   },[count]);
   const plusCountHandler = () => {
-    setCount(count = count + 1)
+    setCount(count )
   }
   console.log('countRender')
   return (
@@ -54,8 +54,7 @@ function App() {
       <button onClick={plusCountHandler}>+</button>
       {count}
       <Select/>
-      <UseMemoTest country={country} />
-      <button onClick={changeFilterHandler}>filterForPopulation</button>
+      <UseMemoTest country={country} callBack={changeFilterHandler}/>
     </div>
   );
 }
