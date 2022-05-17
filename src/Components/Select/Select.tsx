@@ -1,7 +1,8 @@
 import React, {ChangeEvent, useState} from 'react';
-import {UserType} from "../../App";
+import {countryType, UserType} from "../../App";
 type SelectType = {
-  user: Array<UserType>
+  user?: Array<UserType>
+  country? : Array<countryType>
 }
 const SelectM = (props:SelectType) => {
   const[value, setValue] = useState('Menu')
@@ -11,7 +12,8 @@ const SelectM = (props:SelectType) => {
   return (
     <div>
       <select value={value} onChange={onchangeSelectHandler} className={'select__header'}>
-        {props.user.map(u => <option className={'option__header'} key={u.id}>{u.name}</option>)}
+        {props.user && props.user.map(u => <option className={'option__header'} key={u.id}>{u.name}</option>)}
+        {props.country && props.country.map(c => <option className={'option__header'} key={c.id}>{c.city}</option>)}
       </select>
     </div>
   );
