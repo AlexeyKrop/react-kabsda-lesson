@@ -1,17 +1,12 @@
 import React, {useMemo, useState} from 'react';
 import './App.css';
-import Select from "./Components/Select/Select";
-import {UseMemoTest} from "./Components/UseMemoTest/UseMemoTest";
+import Country from "./Components/TaskUseMemo/Country";
 
 export type UserType = {
   id: number,
   name: string
 }
-export type countryType = {
-  id: string
-  city: Array<string>
-  population: number
-}
+
 function App() {
   const [accordionCollapsed, setAccordionCollapsed] = useState(true)
   const [ratingValue, setRatingValue] = useState(0)
@@ -24,23 +19,6 @@ function App() {
   const showUserName = (id: number) => {
     user.map(u => u.id === id ?  setTitleValue(u.name) : '')
   }
-  let [country, setCountry] = useState<Array<countryType>>([
-    {id: 'Russia', city:['Moscow', 'Samara', 'Sochi'], population: 15000000},
-    {id: 'Belarus', city:['Minsk', 'Gomel', 'Bobruisk'], population: 5000000},
-    {id: 'USA', city:['New-York', 'Las-vegas', 'Washington'], population: 7000000},
-  ])
-  const changeFilterHandler = () => {
-    setCountry(country.filter(c => c.population > 5000000))
-  }
-  let [count, setCount] = useState(0)
-  let resultCount = useMemo( () => {
-    count = count + 1
-    return count
-  },[count]);
-  const plusCountHandler = () => {
-    setCount(count )
-  }
-  console.log('countRender')
   return (
     <div className="App">
       <h2>This is component</h2>
@@ -51,10 +29,11 @@ function App() {
       {/*<Accordion titleValue='---User---' collapsed={false}/>*/}
       {/*<UnControlAccordion titleValue={'Menu'} />*/}
       {/*<Select user={user}/>*/}
-      <button onClick={plusCountHandler}>+</button>
-      {count}
-      <Select/>
-      <UseMemoTest country={country} callBack={changeFilterHandler}/>
+      {/*<button onClick={plusCountHandler}>+</button>*/}
+      {/*{count}*/}
+      {/*<Select/>*/}
+      {/*<UseMemoTest country={country} callBack={changeFilterHandler}/>*/}
+      <Country />
     </div>
   );
 }
