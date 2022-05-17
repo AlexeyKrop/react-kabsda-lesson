@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useMemo, useState} from 'react';
 import './App.css';
 import Select from "./Components/Select/Select";
 import {UseMemoTest} from "./Components/UseMemoTest/UseMemoTest";
@@ -29,14 +29,18 @@ function App() {
     {id: 'Belarus', city:['Minsk', 'Gomel', 'Bobruisk'], population: 5000000},
     {id: 'USA', city:['New-York', 'Las-vegas', 'Washington'], population: 7000000},
   ])
-  const changeFilter = () => {
+  const changeFilterHandler = () => {
     setCountry(country.filter(c => c.population > 5000000))
   }
   let [count, setCount] = useState(0)
+  let resultCount = useMemo( () => {
+    count = count + 1
+    return count
+  },[count]);
   const plusCountHandler = () => {
     setCount(count = count + 1)
   }
-  console.log('APPRender')
+  console.log('countRender')
   return (
     <div className="App">
       <h2>This is component</h2>
@@ -50,7 +54,8 @@ function App() {
       <button onClick={plusCountHandler}>+</button>
       {count}
       <Select/>
-      <UseMemoTest country={country} changeFilter={changeFilter}/>
+      <UseMemoTest country={country} />
+      <button onClick={changeFilterHandler}>filterForPopulation</button>
     </div>
   );
 }
