@@ -18,8 +18,6 @@ const Country = () => {
     {id: 'Usa', city: 'Las-Vegas', population: 31000000},
     {id: 'Usa', city: 'Boston', population: 12000000},
   ])
-
-  console.log('countRender')
   let [counter, setCounter] = useState(0)
 
   const onclickHandler = () => {
@@ -38,7 +36,7 @@ const Country = () => {
   // let filterForPopulation = country.filter(c => c.population > 3000000)
   // let filterForName = country.filter(c => c.city.indexOf('I') > -1)
   // let filterForCountry = country.filter(c => c.id === 'Russia')
-  console.log('countryRender')
+  console.log('countRender')
   return (
     <div>
       <Select country={filterForPopulation}/>
