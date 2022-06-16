@@ -1,8 +1,6 @@
-import React, {useMemo, useState} from 'react';
+import React, {useState} from 'react';
 import './App.css';
-import Country from "./Components/TaskUseMemo/Country";
-import TaskReactMemo from "./Components/TaskReactMemo/TaskReactMemo";
-import { Clock } from './Components/Clock/Clock';
+import {ClockView} from "./Components/Clock/ClockView";
 
 export type UserType = {
   id: number,
@@ -37,7 +35,7 @@ function App() {
       {/*<UseMemoTest country={country} callBack={changeFilterHandler}/>*/}
       {/*<Country />*/}
       {/*<TaskReactMemo />*/}
-      <Clock mode={'analog'}/>
+      <ClockView/>
     </div>
   );
 }
