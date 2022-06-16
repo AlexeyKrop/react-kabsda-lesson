@@ -2,6 +2,7 @@ import React, {useMemo, useState} from 'react';
 import './App.css';
 import Country from "./Components/TaskUseMemo/Country";
 import TaskReactMemo from "./Components/TaskReactMemo/TaskReactMemo";
+import { Clock } from './Components/Clock/Clock';
 
 export type UserType = {
   id: number,
@@ -35,7 +36,8 @@ function App() {
       {/*<Select/>*/}
       {/*<UseMemoTest country={country} callBack={changeFilterHandler}/>*/}
       {/*<Country />*/}
-      <TaskReactMemo />
+      {/*<TaskReactMemo />*/}
+      <Clock />
     </div>
   );
 }
