@@ -37,7 +37,7 @@ function App() {
       {/*<UseMemoTest country={country} callBack={changeFilterHandler}/>*/}
       {/*<Country />*/}
       {/*<TaskReactMemo />*/}
-      <Clock />
+      <Clock mode={'digital'}/>
     </div>
   );
 }
