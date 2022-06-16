@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from "react";
 import s from './DigitalClockView.module.css'
 import style from './AnalogClockView.module.css'
+import {ClockPropsType} from "./ClockView";
 
-type ClockPropsType = {
-  mode: 'digital' | 'analog'
-}
+
 type ClockViewPropsType = {
   date: Date
 }
