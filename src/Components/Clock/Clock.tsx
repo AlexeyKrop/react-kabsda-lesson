@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
-import s from './Clock.module.css'
+import s from './DigitalClockView.module.css'
+import style from './AnalogClockView.module.css'
 
 type ClockPropsType = {
   mode: 'digital' | 'analog'
@@ -39,6 +40,37 @@ export const DigitalClockView: React.FC<ClockViewPropsType> = React.memo(({date}
 export const AnalogClockView: React.FC<ClockViewPropsType> = React.memo(({date}) => {
   console.log('AnalogClockView render')
   return (
-    <span>'Analog'</span>
+    <div className={style.clock}>
+      <div
+        className={style['hour_hand']}
+        style={{
+          transform: `rotateZ(${date.getHours() * 30}deg)`
+        }}
+      />
+      <div
+        className={style['min_hand']}
+        style={{
+          transform: `rotateZ(${date.getMinutes() * 6}deg)`
+        }}
+      />
+      <div
+        className={style['sec_hand']}
+        style={{
+          transform: `rotateZ(${date.getSeconds() * 6}deg)`
+        }}
+      />
+      <span className={style.twelve}>12</span>
+      <span className={style.one}>1</span>
+      <span className={style.two}>2</span>
+      <span className={style.three}>3</span>
+      <span className={style.four}>4</span>
+      <span className={style.five}>5</span>
+      <span className={style.six}>6</span>
+      <span className={style.seven}>7</span>
+      <span className={style.eight}>8</span>
+      <span className={style.nine}>9</span>
+      <span className={style.ten}>10</span>
+      <span className={style.eleven}>11</span>
+    </div>
   )
 })
