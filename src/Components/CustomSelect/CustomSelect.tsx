@@ -16,6 +16,7 @@ export const CustomSelect: React.FC<SuperSelectPropsType> = ({
   const onChangeCollapsed = () => {
     setCollapsed(!collapsed)
   }
+
   return (
     <>
       <div onClick={() => {
@@ -28,7 +29,8 @@ export const CustomSelect: React.FC<SuperSelectPropsType> = ({
             d="M18.71,8.21a1,1,0,0,0-1.42,0l-4.58,4.58a1,1,0,0,1-1.42,0L6.71,8.21a1,1,0,0,0-1.42,0,1,1,0,0,0,0,1.41l4.59,4.59a3,3,0,0,0,4.24,0l4.59-4.59A1,1,0,0,0,18.71,8.21Z"/>
         </svg>
       </div>
-      {collapsed && <Option data={options} onChangeSelectValue={onChangeSelectValue} onChangeCollapsed={onChangeCollapsed}/>}
+      {collapsed &&
+        <Option data={options} onChangeSelectValue={onChangeSelectValue} onChangeCollapsed={onChangeCollapsed}/>}
     </>
   )
 }
@@ -38,14 +40,19 @@ function Option(props: any) {
     props.onChangeSelectValue(value)
     props.onChangeCollapsed()
   }
-  const onKeyUp = (e: KeyboardEvent<HTMLUListElement>) => {
+  const onChangeValueInSelect = (value: string) => {
+    props.onChangeSelectValue(value)
+  }
+
+  const onKeyUp = (e: KeyboardEvent<HTMLDivElement>) => {
+    console.log(e.currentTarget)
     e.currentTarget.focus()
   }
   return (
-    <div className="menu" tabIndex={0}>
-      {props.data.map((u: any) => <div   onClick={() => {
+    <div className="menu">
+      {props.data.map((u: any, index: any) => <div onKeyDown={() => onChangeValueInSelect(u)} tabIndex={index + 1}  onClick={() => {
         onClickMenuListHandler(u)
-      }} key={u.id} className="menu__list">{u}</div>)}
+      }} key={index} className="menu__list">{u}</div>)}
     </div>
   )
 }
