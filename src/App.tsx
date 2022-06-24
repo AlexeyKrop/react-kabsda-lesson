@@ -21,10 +21,11 @@ function App() {
   // const showUserName = (id: number) => {
   //   user.map(u => u.id === id ? setTitleValue(u.name) : '')
   // }
+  const arr = ['x', 'y', 'z']
   return (
     <div className="App">
       <h2>This is component</h2>
-      <CustomSelect data={[{id:1, city: 'Moscow'},{id:2, city: 'Kazan'}]}/>
+      <CustomSelect options={arr}/>
       {/*<Accordion user={user} titleValue={titleValue} collapsed={accordionCollapsed}*/}
       {/*  setAccordionCollapsed={setAccordionCollapsed}*/}
       {/*  showUserName={showUserName} />*/}
